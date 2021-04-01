@@ -3,14 +3,14 @@ pipeline {
   stages {
     stage('Install dependencies') {
       steps {
-        sh "chmod +x ~/install_scripts/install_scripts.sh"
-        sh "~/install_scripts/install_scripts.sh"
+        sh "chmod +x ~/terrakins/install_scripts/install_scripts.sh"
+        sh "~/terrakins/install_scripts/install_scripts.sh"
       }
     }
     
     stage('Run terraform config files') {
       steps {
-        sh "cd ~"
+        sh "cd ~/terrakins"
         sh "terraform init"
         sh "terraform plan"
         sh "terraform apply -auto-approve"
